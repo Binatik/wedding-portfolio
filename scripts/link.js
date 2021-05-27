@@ -9,13 +9,13 @@ const href = [
     'https://fonts.googleapis.com/css2?family=Pattaya&display=swap',
 ];
 
+//connect styles;
 const LinkSwiper = `<link rel="stylesheet" href=${href[0]}>`;
 const reset = `<link rel="stylesheet" href=${href[1]}>`;
 const normalize = `<link rel="stylesheet" href=${href[2]}>`;
 const constructor = `<link rel="stylesheet" href=${href[3]}>`;
 const fontsStatic = `<link rel="preconnect" href=${href[4]}>`;
-const fontsFamily = `<link href=${href[5]} rel="stylesheet">`
-//connect styles;
+const fontsFamily = `<link rel="stylesheet" href=${href[5]}>`
 
 tHead.insertAdjacentHTML('afterbegin', fontsFamily);
 tHead.insertAdjacentHTML('afterbegin', fontsStatic);
