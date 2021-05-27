@@ -1,7 +1,7 @@
 const tHead = document.head;
 
 const href = [
-    'https://fonts.googleapis.com/css2?family=Pattaya&display=swap',
+    'https://fonts.googleapis.com/css2?family=Pattaya&family=Poppins&display=swap',
     'https://fonts.gstatic.com',
     'styles/constructor.css',
     'styles/normalize.css',
