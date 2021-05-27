@@ -6,33 +6,42 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Сайт c моим крутым портфолио">
+    <link rel="stylesheet" href="styles/index.css">
     <title>Мой сайт-визитка</title>
 </head>
 <body>
-    <header>
-        <!-- Slider main container -->
-        <div class="swiper-container">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="swiper-slide">Slide 1</div>
-                <div class="swiper-slide">Slide 2</div>
-                <div class="swiper-slide">Slide 3</div>
-                ...
-            </div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
-
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-
-            <!-- If we need scrollbar -->
-            <div class="swiper-scrollbar"></div>
+<header>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!-- Slides -->
         </div>
-    </header>
-    <script src="scripts/link.js"></script>
-    <script src="scripts/swiper.min.js"></script>
-    <script src="scripts/main.js"></script>
+        <div class="swiper-pagination"></div>
+        <div class="wrapper">
+            <nav class="pagination">
+                <ul class="pagination__list between-items-f wrap-f">
+                    <li class="pagination__item">
+                        <a class="pagination__link link" href="#">Главная</a>
+                    </li>
+                    <li class="pagination__item">
+                        <a class="pagination__link link" href="#">Обо мне</a>
+                    </li>
+                    <li class="pagination__item">
+                        <a class="pagination__link link" href="#">Услуги</a>
+                    </li>
+                    <li class="pagination__item">
+                        <a class="pagination__link link" href="#">Портфолио</a>
+                    </li>
+                    <li class="pagination__item">
+                        <a class="pagination__link link" href="#">Контакты</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<script src="scripts/link.js"></script>
+<script src="store.js"></script>
+<script src="scripts/swiper.min.js"></script>
+<script src="scripts/main.js"></script>
 </body>
 </html>
