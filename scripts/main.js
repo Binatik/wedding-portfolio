@@ -10,7 +10,7 @@ images.map(({url, alt}) => {
         `
 });
 
-pagination.map(({link, title}) => {
+a.map(({link, title}) => {
     swiperW.innerHTML +=
         ` 
         <li class="pagination__item">
