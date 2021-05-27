@@ -1,25 +1,16 @@
 const tHead = document.head;
 
 const href = [
-    'styles/swiper.min.css',
-    'styles/reset.css',
-    'styles/normalize.css',
-    'styles/constructor.css',
-    'https://fonts.gstatic.com',
     'https://fonts.googleapis.com/css2?family=Pattaya&display=swap',
+    'https://fonts.gstatic.com',
+    'styles/constructor.css',
+    'styles/normalize.css',
+    'styles/reset.css',
+    'styles/swiper.min.css',
 ];
 
-//connect styles;
-const LinkSwiper = `<link rel="stylesheet" href=${href[0]}>`;
-const reset = `<link rel="stylesheet" href=${href[1]}>`;
-const normalize = `<link rel="stylesheet" href=${href[2]}>`;
-const constructor = `<link rel="stylesheet" href=${href[3]}>`;
-const fontsStatic = `<link rel="preconnect" href=${href[4]}>`;
-const fontsFamily = `<link rel="stylesheet" href=${href[5]}>`
-
-tHead.insertAdjacentHTML('afterbegin', fontsFamily);
-tHead.insertAdjacentHTML('afterbegin', fontsStatic);
-tHead.insertAdjacentHTML('afterbegin', constructor);
-tHead.insertAdjacentHTML('afterbegin', normalize);
-tHead.insertAdjacentHTML('afterbegin', reset);
-tHead.insertAdjacentHTML('afterbegin', LinkSwiper);
+//connect;
+href.forEach((el) => {
+    const link = `<link rel="stylesheet" href=${el}>`;
+    tHead.insertAdjacentHTML('afterbegin', link);
+});
