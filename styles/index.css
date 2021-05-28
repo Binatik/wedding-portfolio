@@ -38,6 +38,7 @@
     left: 0;
     top: 0;
     z-index: 10;
+    transition: 0.2s;
 }
 
 .pagination__list {
@@ -91,7 +92,7 @@
 }
 
 .menu-burger__header {
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     z-index: 11;
@@ -138,6 +139,14 @@
 @media (max-width: 768px) {
     .menu-burger {
         display: block;
+    }
+
+    .pagination {
+        left: -1000%;
+    }
+
+    .pagination__active {
+        left: 0;
     }
 }
 

@@ -1,5 +1,5 @@
 const swiperW = document.querySelector('.swiper-wrapper');
-const pagination = document.querySelector('.pagination__list');
+const paginationList = document.querySelector('.pagination__list');
 
 const swiper = new Swiper('.swiper-container', {
     loop: true,
@@ -19,7 +19,7 @@ images.map(({url, alt}) => {
 });
 
 a.map(({link, title}) => {
-    pagination.innerHTML +=
+    paginationList.innerHTML +=
         ` 
         <li class="pagination__item">
             <a class="pagination__link link" href=${link}>${title}</a>
@@ -27,8 +27,14 @@ a.map(({link, title}) => {
         `
 });
 
-const acBurger = (burger) => {
+const acBurger = (burger, dependence) => {
     burger.addEventListener('click', () => {
         burger.classList.toggle('active');
+        dependence.classList.toggle('pagination__active');
     });
-}; acBurger(document.querySelector('.menu-burger__header'));
+}; acBurger(
+    //burger
+    document.querySelector('.menu-burger__header'),
+    //dependence
+    document.querySelector('.pagination')
+);
