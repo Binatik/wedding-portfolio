@@ -64,3 +64,25 @@
     transition: 0.2s;
 }
 
+.h-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+}
+
+.global-title {
+    color: #fff;
+    font-size: 82px;
+}
+
+.global-text {
+    color: #fff;
+    font-size: 24px;
+}
+
+.h-content__text {
+    text-align: center;
+}
+
