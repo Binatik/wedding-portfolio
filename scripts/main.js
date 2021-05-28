@@ -1,14 +1,6 @@
 const swiperW = document.querySelector('.swiper-wrapper');
 const paginationList = document.querySelector('.pagination__list');
 
-const swiper = new Swiper('.swiper-container', {
-    loop: true,
-    spaceBetween: 15,
-    pagination: {
-        el: '.swiper-pagination',
-    },
-});
-
 images.map(({url, alt}) => {
     swiperW.innerHTML +=
         ` 
@@ -25,6 +17,14 @@ a.map(({link, title}) => {
             <a class="pagination__link link" href=${link}>${title}</a>
         </li>
         `
+});
+
+const swiper = new Swiper('.swiper-container', {
+    loop: true,
+    spaceBetween: 15,
+    pagination: {
+        el: '.swiper-pagination',
+    },
 });
 
 const acBurger = (burger, dependence) => {

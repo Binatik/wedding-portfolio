@@ -7,6 +7,14 @@ const images = [
         url: 'images/mainSlider1.jpg',
         alt: 'свадьба'
     },
+    {
+        url: 'images/mainSlider1.jpg',
+        alt: 'свадьба'
+    },
+    {
+        url: 'images/mainSlider1.jpg',
+        alt: 'свадьба'
+    },
 ]
 
 const a = [
