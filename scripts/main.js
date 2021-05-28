@@ -1,6 +1,14 @@
 const swiperW = document.querySelector('.swiper-wrapper');
 const pagination = document.querySelector('.pagination__list');
 
+const swiper = new Swiper('.swiper-container', {
+    loop: true,
+    spaceBetween: 15,
+    pagination: {
+        el: '.swiper-pagination',
+    },
+});
+
 images.map(({url, alt}) => {
     swiperW.innerHTML +=
         ` 
@@ -19,10 +27,8 @@ a.map(({link, title}) => {
         `
 });
 
-const swiper = new Swiper('.swiper-container', {
-    loop: true,
-    spaceBetween: 15,
-    pagination: {
-        el: '.swiper-pagination',
-    },
-});
+const acBurger = (burger) => {
+    burger.addEventListener('click', () => {
+        burger.classList.toggle('active');
+    });
+}; acBurger(document.querySelector('.menu-burger__header'));
