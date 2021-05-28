@@ -1,3 +1,9 @@
+.disabled-link {
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
 .wrapper {
     max-width: 1920px;
     margin: 0 auto;
@@ -126,6 +132,63 @@
 }
 .menu-burger__header.active .bottom {
     stroke-dashoffset: -68px;
+}
+
+.title-section {
+    text-align: center;
+    font-size: 62px;
+}
+
+.feedback {
+    min-height: 1000px;
+    padding-top: 100px;
+}
+
+.feedback__title {
+    color: #000;
+}
+
+.feedback__list {
+    margin: 100px 20% 30px 20%;
+}
+
+.feedback__item {
+    width: 50%;
+}
+
+.feedback__elem {
+    margin-bottom: 35px;
+    font-size: 24px;
+    position: relative;
+}
+
+.feedback__elem input {
+    width: 100%;
+    padding: 10px 10px 15px 0;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #000;
+}
+
+.feedback__elem label {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    transition: 0.2s;
+}
+
+::-webkit-input-placeholder {
+    opacity: 0;
+}
+
+.feedback__elem input:focus+label {
+    top: -15px;
+    font-size: 18px;
+}
+
+.feedback__elem input:not(:placeholder-shown)+label {
+    font-size: 0;
 }
 
 @media (max-width: 1200px) {

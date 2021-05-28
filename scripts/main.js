@@ -1,7 +1,10 @@
 const swiperW = document.querySelector('.swiper-wrapper');
 const paginationList = document.querySelector('.pagination__list');
+const input = document.querySelector('.input');
 
-images.map(({url, alt}) => {
+images.map(({
+url, alt
+}) => {
     swiperW.innerHTML +=
         ` 
         <div class="swiper-slide">
@@ -10,7 +13,9 @@ images.map(({url, alt}) => {
         `
 });
 
-a.map(({link, title}) => {
+a.map(({
+link, title
+}) => {
     paginationList.innerHTML +=
         ` 
         <li class="pagination__item">
@@ -26,6 +31,18 @@ const swiper = new Swiper('.swiper-container', {
         el: '.swiper-pagination',
     },
 });
+
+feedback.map(({
+id, forID, type, title, placeholder
+}) => {
+    input.innerHTML +=
+        ` 
+        <div class="feedback__elem">
+            <input type=${type} id=${id} placeholder=${placeholder}>
+            <label class="disabled-link" for=${forID}>${title}</label>
+        </div>
+        `
+})
 
 const acBurger = (burger, dependence) => {
     burger.addEventListener('click', () => {
