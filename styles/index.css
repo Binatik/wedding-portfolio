@@ -95,7 +95,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
-    z-index: 1;
+    z-index: 10;
 }
 
 .global-title {
@@ -172,11 +172,11 @@
 }
 
 .feedback__item {
-    width: 50%;
+    width: 45%;
 }
 
 .feedback__elem {
-    margin-bottom: 35px;
+    margin-bottom: 85px;
     font-size: 24px;
     position: relative;
 }
@@ -218,9 +218,9 @@
 
 .feedback__button {
     margin-top: 60px;
+    margin-bottom: 80px;
     padding: 25px;
     width: 100%;
-    border: 1px solid transparent;
     transition: 0.1s;
 }
 
@@ -233,15 +233,55 @@
 .button-md {
     cursor: pointer;
     outline: none;
-    border: none;
+    border: 1px solid transparent;
     background-color: #086c6c;
     color: #fff;
     letter-spacing: 2px;
     font-size: 22px;
 }
 
-.feedback__subTitle {
+.feedback__text {
+    margin-top: 24px;
+    font-size: 24px;
+    font-weight: 300;
+}
 
+.feedback__contact:nth-child(1) {
+    margin-right: 20px;
+}
+
+.feedback__contact-group {
+    margin-top: 50px;
+}
+
+.feedback__contact-title {
+    font-size: 22px;
+}
+
+.feedback__contact-text {
+    font-size: 24px;
+}
+
+.feedback__links {
+    margin-top: 80px;
+}
+
+.feedback__link-svg {
+    fill: #086c6c;
+    width: 50px;
+    height: 50px;
+    transition: 0.2s;
+}
+
+.feedback__link:hover .feedback__link-svg {
+    stroke: #007aff;
+    fill: transparent;
+}
+
+.footer {
+    position: relative;
+    background-color: #000000;
+    min-height: 300px;
 }
 
 @media (max-width: 1200px) {
@@ -258,6 +298,10 @@
     .title-section {
         text-align: center;
         font-size: 42px;
+    }
+
+    .feedback__list {
+        margin: 100px 5% 30px 5%;
     }
 }
 
@@ -281,6 +325,12 @@
 
     .feedback__item {
         width: 100%;
+    }
+
+    .feedback__elem {
+        margin-bottom: 35px;
+        font-size: 24px;
+        position: relative;
     }
 }
 
