@@ -1,14 +1,15 @@
-let stateInputData = [];
+let stateInputData = {
 
-const rules = [
-    {
-        inputFeedback: {
-            name: /^([А-Я]{1}[а-яё]{1,23}|[A-Z]{1}[a-z]{1,23})$/,
-            fam: /^([А-Я]{1}[а-яё]{1,23}|[A-Z]{1}[a-z]{1,23})$/,
-            tel: /^\+?[78][-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/
-        }
+};
+
+const rules = {
+    inputFeedback: {
+        name: /^([А-Я]{1}[а-яё]{1,23}|[A-Z]{1}[a-z]{1,23})$/,
+        fam: /^([А-Я]{1}[а-яё]{1,23}|[A-Z]{1}[a-z]{1,23})$/,
+        tel: /^\+?[78][-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/,
+        message: /./
     }
-]
+}
 
 const headerSliders = [
     {
@@ -106,7 +107,7 @@ const feedback = [
         title: 'Сообщение',
         placeholder: 'Сообщение',
         required: true,
-        data: 'text',
+        data: 'message',
     },
 ]
 

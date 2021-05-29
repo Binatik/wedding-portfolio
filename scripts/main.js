@@ -32,81 +32,77 @@ window.addEventListener('scroll', () => {
     }
 })
 
-input.addEventListener('submit', (ev) => {
-    const lbs = document.querySelectorAll('.feedback__elem label');
-    const rulesFeedback = rules[0].inputFeedback;
-    const feedbackElemInput = document.querySelectorAll('.feedback__elem input[data-check]');
+const rulesFeedback = rules.inputFeedback;
+const labels = document.querySelectorAll('.feedback__elem label');
+const feedbackElemInputs = document.querySelectorAll('.feedback__elem input[data-check]');
 
-    const checkRegValidator = (ev) => {
-        let isColor;
-        feedbackElemInput.forEach((input, i) => {
-            const paragraph = input.parentElement.children[0];
-            paragraph.classList.add("invalid-hidden");
-            switch (i) {
-                case 0:
-                    if (rulesFeedback.name.test(input.value)) {
-                        isColor = true;
-                    }
-                    else {
-                        paragraph.classList.remove("invalid-hidden");
-                        isColor = false;
-                        ev.preventDefault();
-                    }
-                    break;
-                case 1:
-                    if (rulesFeedback.fam.test(input.value))  {
-                        isColor = true;
-                    }
-                    else {
-                        paragraph.classList.remove("invalid-hidden");
-                        isColor = false;
-                        ev.preventDefault();
-                    }
-                    break;
-                case 2:
-                    if (rulesFeedback.tel.test(input.value))  {
-                        isColor = true;
-                    }
-                    else {
-                        paragraph.classList.remove("invalid-hidden");
-                        isColor = false;
-                        ev.preventDefault();
-                    }
-                    break;
+feedbackElemInputs.forEach((input, i) => {
+    input.addEventListener('change', () => {
+        const validateKey = input.dataset.check;
+        //const paragraph = input.parentElement.children[0];
 
-                case 3:
-                    if (input.value.length >0)  {
-                        isColor = true;
-                    }
-                    else {
-                        paragraph.classList.remove("invalid-hidden");
-                        isColor = false;
-                        ev.preventDefault();
-                    }
-                    break;
-
-                default: return null;
-            }
-            isColor ?
-                lbs[i].style.color = '#16c79a' : lbs[i].style.color = 'red';
-            isColor ?
-                feedbackElemInput[i].style.color = '#16c79a' : feedbackElemInput[i].style.color = 'red';
-        });
-    };
-
-    feedbackElemInput.forEach((input, i) => {
-        const paragraph = input.parentElement.children[0];
-        if (input.value && input.value.length > 0) {
-            checkRegValidator(ev);
+        if (!rulesFeedback[validateKey]) {
+            return;
         }
-        else {
-            paragraph.classList.remove("invalid-hidden");
-            console.log(paragraph);
-            console.log('Не ок.');
-            lbs[i].style.color = 'red';
-            ev.preventDefault();
+
+        if (input.value && rulesFeedback[validateKey].test(input.value)) {
+            labels[i].style.color = '#16c79a';
+            input.style.color = '#16c79a';
+            input.classList.remove('invalid');
+            // paragraph.classList.add("invalid-hidden");
+        } else {
+            labels[i].style.color = 'red';
+            input.style.color = 'red';
+            input.classList.add('invalid');
+            // paragraph.classList.remove("invalid-hidden");
         }
     });
+});
+
+input.addEventListener('submit', (event) => {
+    const alertList = document.querySelector('.alert');
+    let hasInvalidInputs = false;
+
+    const acAlert = (timer, text, isReject) => {
+        if (isReject) {
+            alertList.classList.add('alert__active');
+            alertList.textContent = text;
+
+            setTimeout(() => {
+                alertList.classList.remove('alert__active');
+            }, timer);
+        }
+        else {
+            alertList.classList.add('alert__active');
+            alertList.textContent = text;
+
+            setTimeout(() => {
+                alertList.classList.remove('alert__active');
+            }, timer);
+        }
+    }
+
+    feedbackElemInputs.forEach((input) => {
+        const isValid = !input.dataset.required || input.value;
+        const validateKey = input.dataset.check;
+
+        if (!isValid || input.classList.contains('invalid')) {
+            hasInvalidInputs = true;
+        }
+        else {
+            //Если валиден
+            stateInputData[validateKey] = input.value;
+            acAlert(2000, 'Данные отправлены', !hasInvalidInputs);
+        }
+    })
+
+    if (hasInvalidInputs) {
+        event.preventDefault();
+        stateInputData = {};
+        acAlert(2000, 'Ошибка', hasInvalidInputs);
+    }
+    event.preventDefault();
+
     console.log(stateInputData);
-})
+});
 

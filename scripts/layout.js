@@ -48,7 +48,7 @@ id, forID, type, title, placeholder, required, data
             id=${id}  
             placeholder=${placeholder}   
             data-check=${data}
-            ${required ? `data-rule="required"` : null}>
+            ${required ? `data-required="true"` : null}>
             <label class="disabled-link" for=${forID}>${title}</label>
         </div> 
         `

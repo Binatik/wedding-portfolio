@@ -1,3 +1,22 @@
+.alert {
+    font-size: 20px;
+    position: fixed;
+    letter-spacing: 2px;
+    width: 100%;
+    min-height: 50px;
+    color: #fff;
+    background-color: #000;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(-100px);
+    transition: 0.5s;
+}
+
+.alert__active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
 .disabled-link {
     -ms-user-select: none;
     -moz-user-select: none;
@@ -219,6 +238,10 @@
     color: #fff;
     letter-spacing: 2px;
     font-size: 22px;
+}
+
+.feedback__subTitle {
+
 }
 
 @media (max-width: 1200px) {
