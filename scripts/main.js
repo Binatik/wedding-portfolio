@@ -1,54 +1,3 @@
-const swiperW = document.querySelector('.swiper-wrapper');
-const paginationList = document.querySelector('.pagination__list');
-const input = document.querySelector('.input');
-const headerBurger = document.querySelector('.menu-burger__header');
-
-headerSliders.map(({
-url, alt, content
-}) => {
-    swiperW.innerHTML +=
-        ` 
-        <div class="swiper-slide">
-           <img class="swiper-slide__img" src=${url} alt=${alt}> 
-           <div class="h-content">
-                <h1 class="h-content__title global-title">${content.title}</h1>
-                <p class="h-content__text global-text">${content.text}</p>
-           </div>
-        </div> 
-        `
-});
-
-a.map(({
-link, title
-}) => {
-    paginationList.innerHTML +=
-        ` 
-        <li class="pagination__item">
-            <a class="pagination__link link" href=${link}>${title}</a>
-        </li>
-        `
-});
-
-const swiper = new Swiper('.swiper-container', {
-    loop: true,
-    spaceBetween: 15,
-    pagination: {
-        el: '.swiper-pagination',
-    },
-});
-
-feedback.map(({
-id, forID, type, title, placeholder
-}) => {
-    input.innerHTML +=
-        ` 
-        <div class="feedback__elem">
-            <input type=${type} id=${id} placeholder=${placeholder}>
-            <label class="disabled-link" for=${forID}>${title}</label>
-        </div>
-        `
-})
-
 const acBurger = (burger, dependence) => {
     burger.classList.toggle('active');
     dependence.classList.toggle('pagination__active');
@@ -74,11 +23,90 @@ headerBurger.addEventListener('click', () => {
         }
 });
 
-window.addEventListener('scroll', (() => {
+window.addEventListener('scroll', () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     //scroll
     if (scrollTop >= 400) {
         headerBurger.classList.remove('active');
         document.querySelector('.pagination').classList.remove('pagination__active');
     }
-}));
+})
+
+input.addEventListener('submit', (ev) => {
+    const lbs = document.querySelectorAll('.feedback__elem label');
+    const rulesFeedback = rules[0].inputFeedback;
+    const feedbackElemInput = document.querySelectorAll('.feedback__elem input[data-check]');
+
+    const checkRegValidator = (ev) => {
+        let isColor;
+        feedbackElemInput.forEach((input, i) => {
+            const paragraph = input.parentElement.children[0];
+            paragraph.classList.add("invalid-hidden");
+            switch (i) {
+                case 0:
+                    if (rulesFeedback.name.test(input.value)) {
+                        isColor = true;
+                    }
+                    else {
+                        paragraph.classList.remove("invalid-hidden");
+                        isColor = false;
+                        ev.preventDefault();
+                    }
+                    break;
+                case 1:
+                    if (rulesFeedback.fam.test(input.value))  {
+                        isColor = true;
+                    }
+                    else {
+                        paragraph.classList.remove("invalid-hidden");
+                        isColor = false;
+                        ev.preventDefault();
+                    }
+                    break;
+                case 2:
+                    if (rulesFeedback.tel.test(input.value))  {
+                        isColor = true;
+                    }
+                    else {
+                        paragraph.classList.remove("invalid-hidden");
+                        isColor = false;
+                        ev.preventDefault();
+                    }
+                    break;
+
+                case 3:
+                    if (input.value.length >0)  {
+                        isColor = true;
+                    }
+                    else {
+                        paragraph.classList.remove("invalid-hidden");
+                        isColor = false;
+                        ev.preventDefault();
+                    }
+                    break;
+
+                default: return null;
+            }
+            isColor ?
+                lbs[i].style.color = '#16c79a' : lbs[i].style.color = 'red';
+            isColor ?
+                feedbackElemInput[i].style.color = '#16c79a' : feedbackElemInput[i].style.color = 'red';
+        });
+    };
+
+    feedbackElemInput.forEach((input, i) => {
+        const paragraph = input.parentElement.children[0];
+        if (input.value && input.value.length > 0) {
+            checkRegValidator(ev);
+        }
+        else {
+            paragraph.classList.remove("invalid-hidden");
+            console.log(paragraph);
+            console.log('Не ок.');
+            lbs[i].style.color = 'red';
+            ev.preventDefault();
+        }
+    });
+    console.log(stateInputData);
+})
+

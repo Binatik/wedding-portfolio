@@ -180,6 +180,10 @@
     z-index: -1;
 }
 
+.feedback__elem input:focus {
+    color: #000 !important;
+}
+
 ::-webkit-input-placeholder {
     opacity: 0;
 }
@@ -191,6 +195,30 @@
 
 .feedback__elem input:not(:placeholder-shown)+label {
     font-size: 0;
+}
+
+.feedback__button {
+    margin-top: 60px;
+    padding: 25px;
+    width: 100%;
+    border: 1px solid transparent;
+    transition: 0.1s;
+}
+
+.feedback__button:hover {
+    border: 1px solid #000;
+    color: #000;
+    background-color: #fff;
+}
+
+.button-md {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: #086c6c;
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 22px;
 }
 
 @media (max-width: 1200px) {

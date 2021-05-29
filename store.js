@@ -1,3 +1,15 @@
+let stateInputData = [];
+
+const rules = [
+    {
+        inputFeedback: {
+            name: /^([А-Я]{1}[а-яё]{1,23}|[A-Z]{1}[a-z]{1,23})$/,
+            fam: /^([А-Я]{1}[а-яё]{1,23}|[A-Z]{1}[a-z]{1,23})$/,
+            tel: /^\+?[78][-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/
+        }
+    }
+]
+
 const headerSliders = [
     {
         url: 'images/mainSlider1.jpg',
@@ -63,6 +75,8 @@ const feedback = [
         type: 'text',
         title: 'Имя',
         placeholder: 'Имя',
+        required: true,
+        data: 'name',
     },
 
     {
@@ -71,6 +85,8 @@ const feedback = [
         type: 'text',
         title: 'Фамилия',
         placeholder: 'Фамилия',
+        required: true,
+        data: 'fam',
     },
 
     {
@@ -79,6 +95,8 @@ const feedback = [
         type: 'text',
         title: 'Телефон',
         placeholder: 'Телефон',
+        required: true,
+        data: 'tel',
     },
 
     {
@@ -87,6 +105,8 @@ const feedback = [
         type: 'text',
         title: 'Сообщение',
         placeholder: 'Сообщение',
+        required: true,
+        data: 'text',
     },
 ]
 
