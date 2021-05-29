@@ -1,19 +1,35 @@
-const images = [
+const headerSliders = [
     {
         url: 'images/mainSlider1.jpg',
-        alt: 'свадьба'
+        alt: 'свадьба',
+        content: {
+            title: 'Jose Villa',
+            text: 'PHOTOGRAPHY'
+        },
     },
     {
         url: 'images/mainSlider1.jpg',
-        alt: 'свадьба'
+        alt: 'свадьба',
+        content: {
+            title: 'Jose Villa',
+            text: 'PHOTOGRAPHY'
+        },
     },
     {
         url: 'images/mainSlider1.jpg',
-        alt: 'свадьба'
+        alt: 'свадьба',
+        content: {
+            title: 'Jose Villa',
+            text: 'PHOTOGRAPHY'
+        },
     },
     {
         url: 'images/mainSlider1.jpg',
-        alt: 'свадьба'
+        alt: 'свадьба',
+        content: {
+            title: 'Jose Villa',
+            text: 'PHOTOGRAPHY'
+        },
     },
 ]
 
